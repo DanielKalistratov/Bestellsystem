@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class Main {
@@ -29,38 +30,35 @@ public class Main {
         Artikelliste.add(Brot);
 
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(Artikelliste.get(i).getArtikelName() + " " + Artikelliste.get(i).getArtikelNummer() + " " + Artikelliste.get(i).getArtikelPreis());
+        for (int i = 0; i < Artikelliste.size(); i++) {
+            System.out.println(Artikelliste.get(i).getArtikelName() + "  " + Artikelliste.get(i).getArtikelNummer() + "  " + Artikelliste.get(i).getArtikelPreis() + "€" + "  " + Artikelliste.get(i).getArtikelAnzahl());
         }
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Willst du etwas bestellen?");
 
-        for (int j = 0; j < 6; j= j+0) {
-        String antwort = scanner.nextLine();
-           if(antwort.equalsIgnoreCase("Ja")){
-                       System.out.println("Was wollen sie kaufen?");
-                       String kaufen = scanner.nextLine();
-                       if (kaufen.equalsIgnoreCase("Hammer"))
-                           System.out.println("didiifs");
+        for (int j = 0; j < 6; j = j + 0) {
+            String antwort = scanner.nextLine();
+            if (antwort.equalsIgnoreCase("Ja")) {
+                System.out.println("Was wollen sie kaufen?");
+                for (int u = 0; u < Artikelliste.size(); u++) {
+                    String kaufen = scanner.nextLine();
+                    System.out.println(kaufen);
+                    if (kaufen.equalsIgnoreCase(Artikelliste.get(u).getArtikelName())) {
+                        System.out.println("Wie viel wollen sie von diesem Artikel bestellen?");
+                    } else {
+                        System.out.println("Bitte überprüfen sie Ihre Rechtschreibung");
 
 
+                    }
 
-                   }
-
-           else if (antwort.equalsIgnoreCase("Nein")) {
-                       System.out.println("Ok tschuess");
-                       break;
-                   }
-
-
-
-
-
-
-           else {
-                       System.out.println("Bitte mit Ja oder Nein antworten");
-                   }
+                }
+            } else if (antwort.equalsIgnoreCase("Nein")) {
+                System.out.println("Ok tschuess");
+                break;
+            } else {
+                System.out.println("Bitte mit Ja oder Nein antworten");
+            }
         }
 
 
